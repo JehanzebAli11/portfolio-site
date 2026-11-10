@@ -59,6 +59,9 @@
 .case__link { margin-top: var(--space-lg); }
 .plan-fig { margin: 0; padding: var(--space-lg); background: var(--color-paper-2); outline: var(--rule-hair) solid var(--color-rule); outline-offset: -1px; }
 .plan { width: 100%; height: auto; font-family: var(--font-body); }
+.clip-fig { margin: var(--space-xl) 0 0; max-width: 420px; padding: var(--space-lg); background: var(--color-paper-2); outline: var(--rule-hair) solid var(--color-rule); outline-offset: -1px; }
+.clip-fig video { display: block; width: 100%; height: auto; }
+.clip-fig figcaption { margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-muted); }
 .plan-fig figcaption { margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-muted); }
 .pl-label { font-size: 17px; font-weight: 500; fill: var(--color-ink-2); }
 .pl-note { font-size: 16px; fill: var(--color-ink-2); }
