@@ -3,188 +3,477 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jehanzeb Ali: applied AI engineer</title>
-<meta name="description" content="Applied AI engineer: agents, evals and guardrails, with game AI roots. Every result links to the file it came from.">
+<title>Jehanzeb Ali: AI engineer for game worlds</title>
+<meta name="description" content="I build AI agents that work inside game engines, and I test them properly. Five years of Roblox and VR games before that.">
 <link rel="canonical" href="https://jz.business/">
-<meta property="og:title" content="Jehanzeb Ali: applied AI engineer">
-<meta property="og:description" content="Agents, evals and guardrails, with game AI roots. Every result links to the file it came from.">
+<meta property="og:title" content="Jehanzeb Ali: AI engineer for game worlds">
+<meta property="og:description" content="AI agents that work inside game engines, and the tests that prove what they did.">
 <meta property="og:url" content="https://jz.business/">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f6f0e6'/%3E%3Ctext x='16' y='24' font-family='Georgia,serif' font-size='24' text-anchor='middle' fill='%231d1a17'%3EJ%3C/text%3E%3C/svg%3E">
+<meta property="og:image" content="https://jz.business/episode1-poster.jpg">
+<meta name="theme-color" content="#121827">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23121827'/%3E%3Cpath d='M7 22h7v-3H7zM18 22h7v-3h-7z' fill='%23f3b54a'/%3E%3Ccircle cx='10' cy='13' r='3' fill='%23f3b54a'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Hanken+Grotesk:wght@400;500&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./style.css">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* Hallmark · custom run · genre: playful/technical (a game developer turned AI engineer) · shape: hero + simulation, proof strip, pipeline, work cards, stack, timeline, contact · type: Space Grotesk display, Hanken Grotesk body, JetBrains Mono for HUD labels and figures · signature: the hero simulation, the real F1-A room drawn from its JSON replaying fall, fix and success · palette: night navy, blueprint grid, amber accent · v4.0.0
+ * critique: v2 was plain and v3-B was a template; v4 gives the page one thing only this person could show (his room, his loop) and frames every panel like a game HUD */
+:root {
+  --display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --body: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+  --bg: oklch(18.5% 0.03 260);
+  --bg-2: oklch(16% 0.028 260);
+  --panel: oklch(22% 0.032 260);
+  --panel-2: oklch(25.5% 0.036 260);
+  --fg: oklch(95% 0.01 260);
+  --fg-2: oklch(84% 0.02 260);
+  --muted: oklch(72% 0.025 260);
+  --line: oklch(30% 0.035 260);
+  --line-2: oklch(46% 0.05 260);
+  --grid: oklch(24.5% 0.034 260);
+  --amber: oklch(80% 0.15 75);
+  --amber-ink: oklch(83% 0.14 75);
+  --on-amber: oklch(20% 0.03 75);
+  --red: oklch(62% 0.18 25);
+  --red-floor: oklch(42% 0.14 25);
+  --green: oklch(76% 0.15 150);
+  --blue: oklch(62% 0.13 245);
+  --floor: oklch(78% 0.02 260);
+  --wall: oklch(52% 0.03 260);
+  --bridge: oklch(58% 0.07 55);
+  --r: 10px;
+  --wrap: 1180px;
+}
+* { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; font-synthesis: none;
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 48px 48px; background-position: -1px -1px; }
+a { color: inherit; text-underline-offset: 0.2em; }
+a:focus-visible, button:focus-visible, video:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 4px; }
+img, video, svg { display: block; max-width: 100%; height: auto; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; letter-spacing: -0.02em; }
+p { margin: 0 0 0.8rem; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 2rem; }
+.mono { font-family: var(--mono); }
+.label { font-size: 14px; color: var(--muted); }
+
+/* HUD frame: corner brackets */
+.hud { position: relative; background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); }
+.hud::before, .hud::after { content: ""; position: absolute; width: 14px; height: 14px; border: 2px solid var(--amber); pointer-events: none; opacity: 0.85; }
+.hud::before { top: -2px; left: -2px; border-right: 0; border-bottom: 0; border-top-left-radius: var(--r); }
+.hud::after { bottom: -2px; right: -2px; border-left: 0; border-top: 0; border-bottom-right-radius: var(--r); }
+
+/* top bar */
+.top { position: sticky; top: 0; z-index: 10; background: color-mix(in oklch, var(--bg) 86%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 1rem; }
+.mark { font-family: var(--display); font-weight: 700; font-size: 1.1rem; text-decoration: none; display: flex; align-items: center; gap: 0.6rem; }
+.mark i { width: 26px; height: 26px; border-radius: 7px; background: var(--amber); color: var(--on-amber); font: 700 12px var(--mono); display: grid; place-items: center; font-style: normal; }
+.top nav { display: flex; gap: 1.6rem; font-size: 15px; font-weight: 500; }
+.top nav a { text-decoration: none; color: var(--muted); transition: color 0.15s; }
+.top nav a:hover { color: var(--fg); }
+.pill { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.35rem 0.8rem; border: 1px solid var(--line-2); border-radius: 999px; font-family: var(--mono); font-size: 12px; color: var(--fg-2); text-decoration: none; white-space: nowrap; }
+.pill::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 3px color-mix(in oklch, var(--green) 25%, transparent); }
+
+/* buttons */
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 48px; padding: 0 1.25rem; border-radius: 8px; border: 1px solid var(--line-2); text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.15s, background 0.15s, border-color 0.15s; }
+.btn:hover { border-color: var(--fg-2); }
+.btn:active { transform: translateY(1px); }
+.btn.primary { background: var(--amber); color: var(--on-amber); border-color: var(--amber); }
+.btn.primary:hover { background: var(--amber-ink); }
+
+/* hero */
+.hero { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 3.5rem; align-items: center; padding: 4.5rem 0 4rem; }
+.hero .tag { margin-bottom: 1.3rem; color: var(--amber-ink); }
+.hero h1 { font-size: clamp(2.5rem, 1.4rem + 3.2vw, 4.1rem); line-height: 1.02; font-weight: 700; margin-bottom: 1.4rem; }
+.hero .intro { font-size: 1.15rem; color: var(--fg-2); max-width: 36rem; margin-bottom: 2rem; }
+.hero .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.social { display: flex; gap: 1.4rem; flex-wrap: wrap; margin-top: 1.5rem; font-size: 14px; color: var(--muted); }
+.social a:hover { color: var(--fg); }
+
+/* simulation */
+.sim { padding: 0.85rem 0.85rem 0.75rem; }
+.sim .bar { display: flex; justify-content: space-between; align-items: center; padding: 0 0.2rem 0.7rem; }
+.sim .bar .rec { display: inline-flex; align-items: center; gap: 0.45rem; color: var(--fg-2); }
+.sim .bar .rec::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--red); animation: blink 1.6s steps(2, start) infinite; }
+@keyframes blink { to { visibility: hidden; } }
+.sim svg { width: 100%; background: var(--bg-2); border-radius: 7px; border: 1px solid var(--line); }
+.sim .log { margin-top: 0.7rem; height: 7.4rem; overflow: hidden; font-family: var(--mono); font-size: 12.5px; line-height: 1.55; color: var(--muted); background: var(--bg-2); border: 1px solid var(--line); border-radius: 7px; padding: 0.6rem 0.75rem; }
+.sim .log div { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sim .log .ok { color: var(--green); } .sim .log .bad { color: var(--red); } .sim .log .ai { color: var(--amber-ink); }
+.sim .note { margin: 0.6rem 0.2rem 0; font-size: 12.5px; color: var(--muted); }
+.r-floor { fill: var(--floor); } .r-wall { fill: var(--wall); } .r-pit { fill: var(--red-floor); } .r-goal { fill: var(--green); } .r-spawn { fill: var(--blue); }
+.r-lever { fill: var(--amber); } .r-gate { stroke: var(--amber); stroke-width: 3; } .r-bridge { fill: var(--bridge); }
+.r-path { fill: none; stroke: var(--amber); stroke-width: 2; stroke-dasharray: 4 5; opacity: 0.55; }
+.r-player { fill: var(--fg); stroke: var(--bg); stroke-width: 2; }
+.r-text { font: 600 12px var(--body); fill: var(--fg-2); }
+
+/* proof strip */
+.stats { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.stats li { padding: 1.4rem 1.4rem 1.25rem; border-right: 1px solid var(--line); }
+.stats li:last-child { border-right: 0; }
+.stats b { display: block; white-space: nowrap; font-family: var(--mono); font-weight: 600; font-size: clamp(1.2rem, 0.8rem + 1.1vw, 1.7rem); line-height: 1.15; color: var(--fg); margin-bottom: 0.4rem; font-variant-numeric: tabular-nums; }
+.stats b .arrow { color: var(--amber-ink); }
+.stats li > span { font-size: 14px; color: var(--muted); line-height: 1.45; display: block; }
+
+section { padding: 5rem 0 0; }
+.sec-head { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap; }
+.sec-head h2 { font-size: clamp(1.8rem, 1.3rem + 1.4vw, 2.6rem); line-height: 1.1; }
+.sec-head p { color: var(--muted); max-width: 30rem; margin: 0; }
+.sec-num { color: var(--amber-ink); margin-bottom: 0.6rem; display: block; }
+
+/* pipeline */
+.pipe { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; counter-reset: step; position: relative; }
+.pipe li { padding: 1.4rem 1.3rem 1.3rem; counter-increment: step; position: relative; }
+.pipe li::marker { content: none; }
+.pipe .icon { width: 44px; height: 44px; border-radius: 9px; background: var(--panel-2); border: 1px solid var(--line-2); display: grid; place-items: center; margin-bottom: 1rem; }
+.pipe .icon svg { width: 24px; height: 24px; stroke: var(--amber-ink); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.pipe h3 { font-size: 1.15rem; margin-bottom: 0.45rem; }
+.pipe h3::before { content: "0" counter(step) " "; font: 600 13px var(--mono); color: var(--amber-ink); vertical-align: 0.15em; margin-right: 0.3rem; }
+.pipe p { color: var(--muted); font-size: 15.5px; margin: 0; }
+.pipe li:not(:last-child)::after { content: ""; position: absolute; top: 2.75rem; right: -1.25rem; width: 1.25rem; height: 2px; background: repeating-linear-gradient(90deg, var(--amber) 0 4px, transparent 4px 8px); }
+
+/* demo */
+.demo { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 2.5rem; align-items: center; padding: 1.25rem; }
+.demo video { border-radius: 8px; background: var(--bg-2); }
+.demo h3 { font-size: 1.6rem; margin-bottom: 0.8rem; }
+.demo p { color: var(--fg-2); }
+.demo .fine { color: var(--muted); font-size: 14.5px; }
+
+/* work cards */
+.proj { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); overflow: hidden; margin-bottom: 1.25rem; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; }
+.proj:hover { border-color: var(--line-2); transform: translateY(-3px); box-shadow: 0 18px 40px -24px color-mix(in oklch, var(--amber) 40%, transparent); }
+.proj .media { background: var(--panel-2); padding: 1.4rem; display: flex; flex-direction: column; justify-content: center; gap: 0.7rem; border-right: 1px solid var(--line); }
+.proj .body { padding: 1.7rem 1.8rem; }
+.proj .kicker { color: var(--amber-ink); margin-bottom: 0.55rem; }
+.proj h3 { font-size: 1.55rem; line-height: 1.15; margin-bottom: 0.7rem; }
+.proj h3 a { text-decoration: none; }
+.proj h3 a:hover { text-decoration: underline; }
+.proj p { color: var(--fg-2); }
+.proj .res { color: var(--fg); }
+.proj .res b { color: var(--amber-ink); font-family: var(--mono); font-weight: 600; }
+.proj .src { font-family: var(--mono); font-size: 13px; color: var(--muted); margin: 0; display: flex; gap: 1rem; flex-wrap: wrap; }
+.rooms { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0.7rem !important; }
+.rooms figure { margin: 0; }
+.rooms img { border-radius: 6px; border: 1px solid var(--line); }
+.rooms figcaption { margin-top: 0.4rem; }
+.chart .c-lab { font: 13px var(--body); fill: var(--muted); }
+.chart .c-val { font: 600 14px var(--mono); fill: var(--fg); }
+.chart .c-bar0 { fill: var(--red); } .chart .c-bar1 { fill: var(--amber); }
+.prs ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.55rem; }
+.prs li { display: flex; gap: 0.75rem; align-items: center; padding: 0.65rem 0.85rem; border: 1px solid var(--line); border-radius: 7px; background: var(--panel); font-size: 15px; }
+.prs li span { font: 600 12.5px var(--mono); color: var(--on-amber); background: var(--amber); padding: 0.1rem 0.45rem; border-radius: 4px; }
+.prs li small { margin-left: auto; font-size: 13px; color: var(--green); }
+
+/* stack */
+.stack { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+.stack > div { padding: 1.3rem 1.3rem 1.1rem; }
+.stack h3 { font-size: 1.05rem; margin-bottom: 0.8rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 0.45rem; list-style: none; margin: 0; padding: 0; }
+.chips li { font-size: 14px; padding: 0.25rem 0.6rem; border: 1px solid var(--line-2); border-radius: 6px; color: var(--fg-2); background: var(--bg-2); }
+
+/* timeline */
+.timeline { list-style: none; margin: 0; padding: 0 0 0 1.6rem; position: relative; }
+.timeline::before { content: ""; position: absolute; left: 5px; top: 0.6rem; bottom: 0.6rem; width: 2px; background: var(--line-2); }
+.timeline li { position: relative; padding: 0 0 1.6rem; display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 1.25rem; }
+.timeline li::before { content: ""; position: absolute; left: calc(-1.6rem + 1px); top: 0.45rem; width: 10px; height: 10px; border-radius: 50%; background: var(--bg); border: 2px solid var(--amber); }
+.timeline li:first-child::before { background: var(--amber); }
+.timeline .yr { font: 13px var(--mono); color: var(--muted); padding-top: 0.2rem; }
+.timeline b { font-family: var(--display); font-size: 1.15rem; font-weight: 600; display: block; }
+.timeline span.d { color: var(--fg-2); }
+
+/* contact */
+.contact { margin-top: 5rem; padding: 3rem; display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 2.5rem; align-items: center;
+  background: radial-gradient(120% 140% at 100% 0%, color-mix(in oklch, var(--amber) 16%, var(--panel)) 0%, var(--panel) 55%); }
+.contact h2 { font-size: clamp(1.9rem, 1.3rem + 1.6vw, 2.8rem); line-height: 1.08; margin-bottom: 0.9rem; }
+.contact p { color: var(--fg-2); margin: 0; }
+.contact .actions { display: flex; flex-direction: column; gap: 0.7rem; align-items: stretch; }
+.contact .actions .btn { justify-content: center; }
+footer { padding: 2.5rem 0 3rem; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; color: var(--muted); font-size: 14px; }
+
+/* reveal: visible by default; JS adds .pre only when it can reveal on scroll */
+.reveal { transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.pre { transform: translateY(10px); }
+.reveal.pre.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal.pre { opacity: 1; transform: none; transition: none; }
+  .sim .bar .rec::before { animation: none; }
+  .proj:hover { transform: none; }
+}
+@media (max-width: 980px) {
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; padding-top: 3rem; }
+  .pipe { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .pipe li:nth-child(2)::after { display: none; }
+  .stack { grid-template-columns: minmax(0, 1fr); }
+  .contact { grid-template-columns: minmax(0, 1fr); padding: 2rem; }
+}
+@media (max-width: 720px) {
+  .wrap { padding: 0 1.25rem; }
+  .top nav { display: none; }
+  .stats { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .stats li:nth-child(2) { border-right: 0; }
+  .stats li:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .pipe { grid-template-columns: minmax(0, 1fr); }
+  .pipe li::after { display: none; }
+  .demo { grid-template-columns: minmax(0, 1fr); }
+  .proj { grid-template-columns: minmax(0, 1fr); }
+  .proj .media { border-right: 0; border-bottom: 1px solid var(--line); }
+  .timeline li { grid-template-columns: minmax(0, 1fr); gap: 0.1rem; }
+  section { padding-top: 3.5rem; }
+}
+</style>
 </head>
 <body>
 
-<header class="nav">
-  <nav class="container nav__inner" aria-label="Main">
-    <a class="wordmark" href="#top">Jehanzeb Ali</a>
-    <ul class="nav__links">
-      <li><a href="#work">Results</a></li>
-      <li><a href="#worldsmith">Worldsmith</a></li>
-      <li><a href="#before">Before AI</a></li>
-      <li><a class="btn btn--primary btn--small" href="mailto:jehanzebali111@gmail.com">Email me</a></li>
-    </ul>
-  </nav>
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top"><i>JA</i>Jehanzeb Ali</a>
+    <nav aria-label="Sections"><a href="#how">How it works</a><a href="#work">Work</a><a href="#exp">Experience</a><a href="#contact">Contact</a></nav>
+    <a class="pill" href="#contact">Open to AI roles</a>
+  </div>
 </header>
 
-<main id="top">
-  <section class="hero container" aria-labelledby="hero-head">
-    <h1 class="hero__head" id="hero-head">Agents that act, and proof they did.</h1>
-    <div class="hero__foot">
-      <p class="lead">Applied AI engineer: agents, evals and guardrails, with game AI roots.</p>
-      <div class="hero__actions">
-        <a class="btn btn--primary" href="mailto:jehanzebali111@gmail.com">Email me</a>
-        <a class="btn btn--secondary" href="#work">See the results</a>
+<main id="top" class="wrap">
+
+  <section class="hero" aria-labelledby="hero-h" style="padding-top:4.5rem">
+    <div>
+      <p class="label tag">AI engineer and former game developer, based in Karachi</p>
+      <h1 id="hero-h">I build AI agents for game worlds, and the tests that prove what they did.</h1>
+      <p class="intro">I test them properly: rules fixed before each run, a baseline to compare against, and the raw logs public. Before this I spent five years making Roblox and VR games.</p>
+      <div class="actions">
+        <a class="btn primary" href="mailto:jehanzebali111@gmail.com">Email me</a>
+        <a class="btn" href="#work">See the work</a>
+        <a class="btn" href="Jehanzeb_Ali_CV.pdf">My CV</a>
       </div>
+      <div class="social"><a href="https://github.com/JehanzebAli11">GitHub</a><a href="https://www.linkedin.com/in/jehanzeb-ali-87b875187/">LinkedIn</a><a href="mailto:jehanzebali111@gmail.com">jehanzebali111@gmail.com</a></div>
     </div>
+
+    <figure class="hud sim" style="margin:0" aria-labelledby="sim-cap">
+      <div class="bar label"><span class="rec">Worldsmith, room F1-A</span><span id="sim-phase">attempt 1</span></div>
+      <svg id="room" viewBox="0 0 720 196" role="img" aria-label="Top-down view of the test room: the player walks to the lever, through the gate and onto a short bridge, falls into the gap; after Claude's fix the bridge is 16 studs long and the player reaches the green goal.">
+        <rect class="r-pit" x="380" y="20" width="160" height="150" rx="4"/>
+        <text class="r-text" x="460" y="182" text-anchor="middle" fill-opacity="0.75">16-stud gap</text>
+        <rect class="r-floor" x="20" y="62" width="120" height="89.6" rx="3"/>
+        <rect class="r-spawn" x="62" y="96" width="36" height="36" rx="3"/>
+        <rect class="r-floor" x="140" y="78.8" width="240" height="56" rx="2"/>
+        <rect class="r-floor" x="220" y="11.6" width="80" height="67.2" rx="2"/>
+        <rect class="r-wall" x="140" y="72" width="80" height="6.8"/>
+        <rect class="r-wall" x="300" y="72" width="80" height="6.8"/>
+        <rect class="r-wall" x="140" y="134.8" width="240" height="6.8"/>
+        <rect class="r-floor" x="540" y="62" width="160" height="89.6" rx="3"/>
+        <rect class="r-goal" x="600" y="95.6" width="40" height="22.4" rx="3"/>
+        <rect class="r-lever" id="lever" x="254" y="19.4" width="12" height="6.7" rx="1"/>
+        <line class="r-gate" id="gate" x1="355" y1="84.4" x2="355" y2="129.2"/>
+        <rect class="r-bridge" id="bridge" x="380" y="90" width="60" height="33.6" rx="2"/>
+        <polyline class="r-path" id="path" points=""/>
+        <circle class="r-player" id="player" cx="80" cy="106.8" r="7"/>
+      </svg>
+      <div class="log" id="log" aria-live="off"></div>
+      <figcaption class="note" id="sim-cap">Drawn from the room’s JSON and the positions logged in the real runs. The real footage is below.</figcaption>
+    </figure>
   </section>
 
-  <section class="section container" id="work" aria-labelledby="work-head">
-    <div class="section__head">
-      <h2 id="work-head">The numbers, and where they live.</h2>
-      <p>Each result links to the file it came from.</p>
-    </div>
-    <table class="ledger">
-      <thead><tr><th scope="col">Project</th><th scope="col">Result</th><th scope="col">Source</th></tr></thead>
-      <tbody>
-        <tr>
-          <td><a class="project" href="https://github.com/JehanzebAli11/worldsmith">Worldsmith</a><span class="desc">AI architect for broken game rooms</span></td>
-          <td class="result">Haiku, Sonnet and Opus each fixed a failing room in one call (one run each).</td>
-          <td class="source"><a href="https://github.com/JehanzebAli11/worldsmith/blob/main/bundles/experiments/m2_f1a_b3/results.json">results.json</a></td>
-        </tr>
-        <tr>
-          <td><a class="project" href="https://github.com/JehanzebAli11/agent-firewall">Agent firewall</a><span class="desc">Guardrail on agent actions</span></td>
-          <td class="result">Injection success 23.3% to 0.2% on unseen attack styles (n = 5,000).</td>
-          <td class="source"><a href="https://github.com/JehanzebAli11/agent-firewall/blob/main/results/metrics.json">metrics.json</a></td>
-        </tr>
-        <tr>
-          <td><a class="project" href="https://github.com/JehanzebAli11/lost-in-transliteration">Lost in Transliteration</a><span class="desc">Injection defences in Urdu</span></td>
-          <td class="result">Prompt Guard 2 catches 48.5% of English attacks, 11.5% in Roman Urdu.</td>
-          <td class="source"><a href="https://github.com/JehanzebAli11/lost-in-transliteration/blob/main/results/table_detection_drop.csv">detection table</a></td>
-        </tr>
-        <tr>
-          <td><a class="project" href="https://github.com/ramenvr/autopilot">Autopilot</a><span class="desc">Open-source game-testing agent</span></td>
-          <td class="result">3 PRs merged, 7 Nov 2026.</td>
-          <td class="source"><a href="https://github.com/ramenvr/autopilot/pull/40">#40</a>, <a href="https://github.com/ramenvr/autopilot/pull/38">#38</a>, <a href="https://github.com/ramenvr/autopilot/pull/39">#39</a></td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section class="section container" id="worldsmith" aria-labelledby="case-head">
-    <div class="section__head">
-      <h2 id="case-head">One room, opened up.</h2>
-      <p>Built in Roblox Studio over MCP.</p>
-    </div>
-    <div class="case">
-      <div>
-        <ol class="steps">
-          <li>A frozen player tries the room and falls, 3 of 3.</li>
-          <li>An AI architect proposes one patch to the world.</li>
-          <li>A validator blocks cheats: 69 of 69 abuse cases.</li>
-          <li>Rebuilt from scratch, the same player finishes 3 of 3.</li>
-        </ol>
-        <p class="case__note">A scripted player, not an AI agent. Harder rooms next.</p>
-        <p class="case__link"><a href="https://github.com/JehanzebAli11/worldsmith">Read the code and every run log</a></p>
-        <figure class="clip-fig">
-          <video src="episode1.mp4" poster="episode1-poster.jpg" controls muted playsinline preload="metadata" width="1080" height="1350" aria-describedby="clip-cap"></video>
-          <figcaption id="clip-cap">Episode 1, 53 seconds. The footage is an on-camera replay of the same route; the 3-of-3 results come from the logged runs.</figcaption>
-        </figure>
-      </div>
-      <figure class="plan-fig">
-        <svg class="plan" viewBox="0 0 740 394" role="img" aria-labelledby="plan-title plan-desc">
-<title id="plan-title">The room from above, before and after the fix</title>
-<desc id="plan-desc">Before the patch the player falls into the gap; after it, the player crosses the 16-stud bridge to the goal.</desc>
-<text class="pl-label" x="20" y="10">Before: bridge 6 studs</text>
-<rect class="pl-floor" x="20.0" y="72.0" width="120.0" height="89.6"/>
-<rect class="pl-floor" x="140.0" y="88.8" width="240.0" height="56.0"/>
-<rect class="pl-floor" x="220.0" y="21.6" width="80.0" height="67.2"/>
-<rect class="pl-floor" x="540.0" y="72.0" width="160.0" height="89.6"/>
-<rect class="pl-bridge" x="380.0" y="100.0" width="60.0" height="33.6"/>
-<rect class="pl-goal" x="600.0" y="105.6" width="40.0" height="22.4"/>
-<rect class="pl-lever" x="254.0" y="29.4" width="12.0" height="6.7"/>
-<line class="pl-gate" x1="355.0" y1="94.4" x2="355.0" y2="139.2"/>
-<polyline class="pl-path" points="80.0,116.8 213.0,116.8 256.0,86.1 259.7,47.5 260.0,113.0 323.7,116.5 366.4,116.7 411.7,116.8 437.7,116.8"/>
-<circle class="pl-start" cx="80.0" cy="116.8" r="4"/>
-<line class="pl-fall" x1="437.7" y1="116.8" x2="509.9" y2="116.8"/>
-<path class="pl-x" d="M504.9 111.8 L514.9 121.8 M514.9 111.8 L504.9 121.8"/>
-<text class="pl-note" x="528" y="172" text-anchor="end">falls into the gap</text>
-<text class="pl-label" x="20" y="208">After the AI architect’s patch: bridge 16 studs</text>
-<rect class="pl-floor" x="20.0" y="272.0" width="120.0" height="89.6"/>
-<rect class="pl-floor" x="140.0" y="288.8" width="240.0" height="56.0"/>
-<rect class="pl-floor" x="220.0" y="221.6" width="80.0" height="67.2"/>
-<rect class="pl-floor" x="540.0" y="272.0" width="160.0" height="89.6"/>
-<rect class="pl-bridge" x="380.0" y="300.0" width="160.0" height="33.6"/>
-<rect class="pl-goal" x="600.0" y="305.6" width="40.0" height="22.4"/>
-<rect class="pl-lever" x="254.0" y="229.4" width="12.0" height="6.7"/>
-<line class="pl-gate" x1="355.0" y1="294.4" x2="355.0" y2="339.2"/>
-<polyline class="pl-path" points="80.0,316.8 213.0,316.8 255.5,286.4 259.7,247.2 260.0,312.9 323.7,316.5 366.0,316.7 411.4,316.8 564.4,316.8 611.3,316.8"/>
-<circle class="pl-start" cx="80.0" cy="316.8" r="4"/>
-<circle class="pl-end" cx="611.3" cy="316.8" r="5"/>
-<text class="pl-note" x="611.3" y="384" text-anchor="middle">reaches the goal</text>
-</svg>
-        <figcaption>Drawn from the room’s JSON and positions logged in Opus’s run.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="section container" aria-labelledby="does-head">
-    <div class="section__head">
-      <h2 id="does-head">What I build.</h2>
-    </div>
-    <ul class="does">
-      <li><h3>Agents that use tools</h3><p>MCP servers and the Claude Agent SDK.</p></li>
-      <li><h3>Evals that hold up</h3><p>Held-out splits, baselines, every run logged.</p></li>
-      <li><h3>Guardrails</h3><p>Injection defence in English, Urdu and Roman Urdu.</p></li>
-      <li><h3>Local models</h3><p>Fine-tuning and serving on an NVIDIA DGX Spark.</p></li>
-    </ul>
-  </section>
-
-  <section class="section band" id="before" aria-labelledby="before-head">
-    <div class="container">
-      <div class="section__head">
-        <h2 id="before-head">Five years of shipping games first.</h2>
-      </div>
-      <ul class="rows">
-        <li><span class="years">2026 to now</span><span class="org">Valar and TableSide</span><span class="what">Founder: an AI traffic firewall; AR menus.</span></li>
-        <li><span class="years">2025 to 2026</span><span class="org">Voldex</span><span class="what">Software engineer, live Roblox games.</span></li>
-        <li><span class="years">2020 to 2025</span><span class="org">Remio VR</span><span class="what">Unity developer, VR titles with 100k+ monthly users.</span></li>
-        <li><span class="years">Live</span><span class="org">NFL Football Universe</span><span class="what">Roblox, 400k+ daily users.</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="close" aria-labelledby="close-head">
-    <div class="container close__grid">
-      <div>
-        <h2 id="close-head">Hiring for agents, evals or game AI?</h2>
-        <p>Based in Karachi, open to remote work or relocation.</p>
-      </div>
-      <ul class="contact">
-        <li><a href="mailto:jehanzebali111@gmail.com">Email <span>jehanzebali111@gmail.com</span></a></li>
-        <li><a href="https://www.linkedin.com/in/jehanzeb-ali-87b875187/">LinkedIn <span>jehanzeb-ali</span></a></li>
-        <li><a href="https://github.com/JehanzebAli11">GitHub <span>JehanzebAli11</span></a></li>
-        <li><a href="./Jehanzeb_Ali_CV.pdf">My CV <span>download</span></a></li>
-      </ul>
-    </div>
-  </section>
-</main>
-
-<footer class="mast container">
-  <p class="mast__name" aria-hidden="true">Jehanzeb Ali</p>
-  <div class="mast__row">
-    <p>Every number on this page comes from a public result file.</p>
-    <ul>
-      <li><a href="https://github.com/JehanzebAli11">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/jehanzeb-ali-87b875187/">LinkedIn</a></li>
+  <div class="hud reveal" style="margin-top:0.5rem">
+    <ul class="stats">
+      <li><b data-count>3 / 3</b><span>runs repaired by each of Haiku, Sonnet and Opus on Worldsmith’s first test room</span></li>
+      <li><b>23.3% <span class="arrow">→</span> 0.2%</b><span>agent attacks that got through, before and after my firewall</span></li>
+      <li><b>48.5% <span class="arrow">→</span> 11.5%</b><span>attacks caught by Prompt Guard 2 in English vs Roman Urdu</span></li>
+      <li><b>3 PRs</b><span>merged into an open-source AI agent that tests games</span></li>
     </ul>
   </div>
-</footer>
 
-<script>window.hallmarkSlots = (m) => { for (const [k, v] of Object.entries(m)) { const s = document.querySelector(`[data-slot="${k}"]`); if (!s) continue; const im = new Image(); im.src = typeof v === 'string' ? v : v.src; im.alt = (typeof v === 'object' && v.alt) || s.dataset.alt || ''; s.querySelectorAll(':scope > img').forEach((o) => o.remove()); s.prepend(im); } };
-document.querySelectorAll('[data-slot] img').forEach((i) => { if (i.complete && !i.naturalWidth) i.remove(); else i.addEventListener('error', () => i.remove(), { once: true }); });</script>
+  <section id="how" aria-labelledby="how-h">
+    <div class="sec-head reveal">
+      <div><h2 id="how-h">How Worldsmith works</h2></div>
+      <p>Most game-testing agents try to get better at the level. I flipped it: the player stays the same, and an AI has to fix the world.</p>
+    </div>
+    <ol class="pipe">
+      <li class="hud reveal"><div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="6" r="3"/><path d="M12 9v6M8 21l4-6 4 6M7 12h10"/></svg></div><h3>Play</h3><p>A frozen scripted player tries a Roblox room built from JSON. Every event is logged.</p></li>
+      <li class="hud reveal"><div class="icon"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="12" rx="2"/><path d="M9 21h6M12 17v4M8 10h.01M16 10h.01M9 13.5c1.8 1.2 4.2 1.2 6 0"/></svg></div><h3>Propose</h3><p>Claude reads the failure and the room, and proposes a small JSON patch to the world.</p></li>
+      <li class="hud reveal"><div class="icon"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.1-8 9-4.6-.9-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div><h3>Validate</h3><p>A validator rejects cheats: moving the goal, shrinking the gap, changing physics.</p></li>
+      <li class="hud reveal"><div class="icon"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8.6M20 4v4.6h-4.6M20 12a8 8 0 0 1-13.7 5.7L4 15.4M4 20v-4.6h4.6"/></svg></div><h3>Replay</h3><p>The room is rebuilt from scratch and the same player tries again, three times.</p></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="demo-h">
+    <div class="hud demo reveal">
+      <video src="episode1.mp4" poster="episode1-poster.jpg" controls muted playsinline preload="metadata" width="1080" height="1350"></video>
+      <div>
+        <h3 id="demo-h">The 53-second demo</h3>
+        <p>Real Roblox Studio footage of the first test room: the short bridge, the fall, the one-field fix, and the same player reaching the goal.</p>
+        <p class="fine">The player is a script that only walks, not an AI. The video is a replay filmed for the camera; the results come from the logged runs.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" aria-labelledby="work-h">
+    <div class="sec-head reveal">
+      <div><h2 id="work-h">Selected work</h2></div>
+      <p>Every result links to the file it came from, so you can check it.</p>
+    </div>
+
+    <article class="hud proj reveal">
+      <div class="media rooms">
+        <figure><img src="room-fall.jpg" alt="The broken room from above: the player lies on the red floor beside the short bridge" width="800" height="571"><figcaption class="label">Before: the player falls</figcaption></figure>
+        <figure><img src="room-fixed.jpg" alt="The fixed room: the player stands on the green goal after crossing the longer bridge" width="800" height="571"><figcaption class="label">After: it reaches the goal</figcaption></figure>
+      </div>
+      <div class="body">
+        <h3><a href="https://github.com/JehanzebAli11/worldsmith">Worldsmith</a></h3>
+        <p>An AI that repairs broken Roblox rooms so the same player can finish them. Every fix goes through a validator that blocks cheats, like moving the goal.</p>
+        <p class="res">Haiku, Sonnet and Opus each repaired the first test room in <b>3 of 3</b> runs; random valid patches in <b>0 of 3</b>. Three harder rooms are being tested now.</p>
+        <p class="src"><a href="https://github.com/JehanzebAli11/worldsmith/blob/main/bundles/experiments/m2_hard_f1a/results.json">results.json</a><a href="https://github.com/JehanzebAli11/worldsmith">code</a></p>
+      </div>
+    </article>
+
+    <article class="hud proj reveal">
+      <div class="media">
+        <svg class="chart" viewBox="0 0 420 76" role="img" aria-label="Successful injections: no firewall 23.3%, with firewall 0.2%"><text class="c-lab" x="0" y="22">No firewall</text><rect class="c-bar0" x="110" y="8" width="250" height="20" rx="3"/><text class="c-val" x="368" y="23">23.3%</text><text class="c-lab" x="0" y="60">With firewall</text><rect class="c-bar1" x="110" y="46" width="3" height="20" rx="1"/><text class="c-val" x="121" y="61">0.2%</text></svg>
+        <p class="label" style="margin:0">Successful injections on attack styles it never saw (n = 5,000)</p>
+      </div>
+      <div class="body">
+        <h3><a href="https://github.com/JehanzebAli11/agent-firewall">Agent firewall</a></h3>
+        <p>A check between an AI agent and its tools. Before the agent sends, pays or signs anything, it asks whether the user actually asked for that.</p>
+        <p class="res">Successful injections went from <b>23.3%</b> to <b>0.2%</b> (8 of 5,000).</p>
+        <p class="src"><a href="https://github.com/JehanzebAli11/agent-firewall/blob/main/results/metrics.json">metrics.json</a><a href="https://github.com/JehanzebAli11/agent-firewall">code</a></p>
+      </div>
+    </article>
+
+    <article class="hud proj reveal">
+      <div class="media">
+        <svg class="chart" viewBox="0 0 420 76" role="img" aria-label="Prompt Guard 2 catches 48.5% of English attacks and 11.5% in Roman Urdu"><text class="c-lab" x="0" y="22">English</text><rect class="c-bar1" x="110" y="8" width="250" height="20" rx="3"/><text class="c-val" x="368" y="23">48.5%</text><text class="c-lab" x="0" y="60">Roman Urdu</text><rect class="c-bar0" x="110" y="46" width="59.3" height="20" rx="3"/><text class="c-val" x="177" y="61">11.5%</text></svg>
+        <p class="label" style="margin:0">Share of the same attacks Prompt Guard 2 caught</p>
+      </div>
+      <div class="body">
+        <h3><a href="https://github.com/JehanzebAli11/lost-in-transliteration">Lost in Transliteration</a></h3>
+        <p>Do prompt-injection defences still work when the attack is written in Urdu or Roman Urdu? I tested open-source classifiers, five LLMs and MCP scanners, then fine-tuned my own detector.</p>
+        <p class="res">Prompt Guard 2 caught <b>48.5%</b> of English attacks but only <b>11.5%</b> in Roman Urdu.</p>
+        <p class="src"><a href="https://github.com/JehanzebAli11/lost-in-transliteration/blob/main/results/table_detection_drop.csv">detection table</a><a href="https://github.com/JehanzebAli11/lost-in-transliteration">code</a></p>
+      </div>
+    </article>
+
+    <article class="hud proj reveal">
+      <div class="media prs">
+        <ul><li><span>#40</span> Roblox Studio connector <small>merged</small></li><li><span>#38</span> Model-free replay <small>merged</small></li><li><span>#39</span> Self-tuning loop <small>merged</small></li></ul>
+      </div>
+      <div class="body">
+        <h3><a href="https://github.com/ramenvr/autopilot">Autopilot</a></h3>
+        <p>Three features I added to an open-source AI agent that plays and tests games: a Roblox Studio connector, replay of confirmed results without a model, and a loop that tunes the agent’s own prompt.</p>
+        <p class="res">All three merged on <b>7 Nov 2026</b>.</p>
+        <p class="src"><a href="https://github.com/ramenvr/autopilot/pull/40">#40</a><a href="https://github.com/ramenvr/autopilot/pull/38">#38</a><a href="https://github.com/ramenvr/autopilot/pull/39">#39</a></p>
+      </div>
+    </article>
+  </section>
+
+  <section aria-labelledby="stack-h">
+    <div class="sec-head reveal"><div><h2 id="stack-h">What I use</h2></div></div>
+    <div class="stack">
+      <div class="hud reveal"><h3>AI and agents</h3><ul class="chips"><li>Claude API</li><li>Agent SDK</li><li>MCP</li><li>evals</li><li>red-teaming</li><li>Batch API</li></ul></div>
+      <div class="hud reveal"><h3>Models and training</h3><ul class="chips"><li>PyTorch</li><li>Hugging Face</li><li>LoRA</li><li>vLLM</li><li>NVIDIA DGX Spark</li></ul></div>
+      <div class="hud reveal"><h3>Code and games</h3><ul class="chips"><li>Python</li><li>TypeScript</li><li>Luau</li><li>C#</li><li>Roblox Studio</li><li>Unity</li></ul></div>
+    </div>
+  </section>
+
+  <section id="exp" aria-labelledby="exp-h">
+    <div class="sec-head reveal"><div><h2 id="exp-h">Experience</h2></div><p>Live games taught me to ship, measure and fix things people actually play.</p></div>
+    <ol class="timeline reveal">
+      <li><span class="yr">2026 to now</span><div><b>Valar and TableSide</b><span class="d">Founder. An AI traffic firewall, and AR menus.</span></div></li>
+      <li><span class="yr">2025 to 2026</span><div><b>Voldex</b><span class="d">Software engineer on live Roblox games.</span></div></li>
+      <li><span class="yr">2020 to 2025</span><div><b>Remio VR</b><span class="d">Unity developer on VR titles with 100k+ monthly users.</span></div></li>
+      <li><span class="yr">Live</span><div><b>NFL Football Universe</b><span class="d">Roblox game with 400k+ daily users.</span></div></li>
+    </ol>
+  </section>
+
+  <section id="contact" aria-labelledby="contact-h" style="padding-top:0">
+    <div class="hud contact reveal">
+      <div>
+        <h2 id="contact-h">Hiring for AI agents, evals or game AI?</h2>
+        <p>I’m based in Karachi and happy to work remotely or relocate. The fastest way to reach me is email.</p>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="mailto:jehanzebali111@gmail.com">jehanzebali111@gmail.com</a>
+        <a class="btn" href="https://www.linkedin.com/in/jehanzeb-ali-87b875187/">LinkedIn</a>
+        <a class="btn" href="Jehanzeb_Ali_CV.pdf">Download CV</a>
+      </div>
+    </div>
+  </section>
+
+  <footer><span>© 2026 Jehanzeb Ali</span><span>Every result on this page links to the file it came from.</span></footer>
+</main>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // reveal on scroll (content is visible without JS: the class is added only here)
+  const els = document.querySelectorAll('.reveal');
+  if (!reduce && 'IntersectionObserver' in window) {
+    els.forEach(e => e.classList.add('pre'));
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+    els.forEach(e => io.observe(e));
+  } else { els.forEach(e => e.classList.add('in')); }
+
+  // the room simulation: route points (scene frame) from the logged runs, drawn top-down
+  const $ = id => document.getElementById(id);
+  const player = $('player'), bridge = $('bridge'), lever = $('lever'), gate = $('gate'), log = $('log'), phase = $('sim-phase'), path = $('path');
+  const route = [[80,106.8],[213,106.8],[256,76.1],[259.7,37.5],[260,103],[323.7,106.5],[366.4,106.7],[411.7,106.8]];
+  const before = route.concat([[437.7,106.8]]);
+  const after = route.concat([[564.4,106.8],[611.3,106.8]]);
+  path.setAttribute('points', after.map(p => p.join(',')).join(' '));
+  const lines = [];
+  const say = (t, cls) => { lines.push(`<div class="${cls||''}">${t}</div>`); while (lines.length > 5) lines.shift(); log.innerHTML = lines.join(''); };
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  const lerp = (a, b, t) => a + (b - a) * t;
+  async function walk(pts, speed = 0.16) {
+    for (let i = 1; i < pts.length; i++) {
+      const [x0,y0] = pts[i-1], [x1,y1] = pts[i], d = Math.hypot(x1-x0, y1-y0), dur = d / speed;
+      const t0 = performance.now();
+      await new Promise(res => { const f = now => { const t = Math.min(1, (now - t0) / dur);
+        player.setAttribute('cx', lerp(x0,x1,t)); player.setAttribute('cy', lerp(y0,y1,t));
+        if (x0 < 256 && x1 >= 256 && t > 0.9) lever.style.fill = 'var(--green)';
+        if (x1 > 355 && x0 <= 355 && t > 0.2) gate.style.opacity = '0.15';
+        t < 1 ? requestAnimationFrame(f) : res(); }; requestAnimationFrame(f); });
+    }
+  }
+  function reset(len) {
+    player.setAttribute('cx', 80); player.setAttribute('cy', 106.8); player.style.opacity = 1; player.setAttribute('r', 7);
+    lever.style.fill = ''; gate.style.opacity = 1; bridge.setAttribute('width', len);
+  }
+  async function fall() {
+    const t0 = performance.now(), dur = 700;
+    await new Promise(res => { const f = now => { const t = Math.min(1, (now - t0) / dur);
+      player.setAttribute('cx', 437.7 + 40 * t); player.setAttribute('r', 7 * (1 - 0.7 * t)); player.style.opacity = 1 - t;
+      t < 1 ? requestAnimationFrame(f) : res(); }; requestAnimationFrame(f); });
+  }
+  async function grow() {
+    const t0 = performance.now(), dur = 900;
+    await new Promise(res => { const f = now => { const t = Math.min(1, (now - t0) / dur); const e = 1 - Math.pow(1 - t, 3);
+      bridge.setAttribute('width', 60 + 100 * e); t < 1 ? requestAnimationFrame(f) : res(); }; requestAnimationFrame(f); });
+  }
+  async function loop() {
+    for (;;) {
+      reset(60); lines.length = 0; log.innerHTML = '';
+      phase.textContent = 'v1 · bridge 6'; say('build room v1 · bridge_1.length = 6 · read-back 0 diffs');
+      await sleep(500); say('attempt 1 · player walks the route');
+      await walk(before); say('LEVER_ACTIVATED · GATE_OPENED');
+      await fall(); say('KILL_FLOOR_TOUCHED · FELL in gap (3 of 3)', 'bad');
+      await sleep(900); phase.textContent = 'architect';
+      say('claude → {"op":"set","id":"bridge_1","field":"length","value":16}', 'ai');
+      await sleep(1100); say('validator · ACCEPTED (gap, goal, physics unchanged)', 'ok');
+      await grow(); phase.textContent = 'v2 · bridge 16'; say('rebuild v2 from scratch · read-back 0 diffs');
+      await sleep(500); reset(160); say('attempt 1 · same player, same route');
+      await walk(after); say('BRIDGE_CROSSED · GOAL_TOUCHED · SUCCESS (3 of 3)', 'ok');
+      await sleep(2600);
+    }
+  }
+  if (reduce) {
+    reset(160); player.setAttribute('cx', 611.3); phase.textContent = 'v2 · bridge 16';
+    ['v1 · bridge 6 · FELL in gap (3 of 3)', 'claude → set bridge_1.length 16', 'validator · ACCEPTED', 'v2 · SUCCESS (3 of 3)'].forEach((t,i) => say(t, ['bad','ai','ok','ok'][i]));
+  } else { loop(); }
+})();
+</script>
+
 </body>
 </html>
