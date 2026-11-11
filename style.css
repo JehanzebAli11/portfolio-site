@@ -106,7 +106,7 @@
 
 /* footer: mast */
 .mast { padding-block: var(--space-2xl) var(--space-xl); }
-.mast__name { font-family: var(--font-display); font-size: clamp(3rem, 11vw, 10rem); line-height: 0.9; letter-spacing: var(--tracking-display); font-variation-settings: "opsz" 96; overflow-wrap: break-word; min-width: 0; }
+.mast__name { font-family: var(--font-display); font-size: clamp(3rem, 11vw, 10rem); line-height: 0.9; letter-spacing: var(--tracking-display); overflow-wrap: break-word; min-width: 0; }
 .mast__row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-md); margin-top: var(--space-lg); padding-top: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); font-size: var(--text-sm); color: var(--color-muted); }
 .mast__row ul { display: flex; gap: var(--space-lg); list-style: none; margin: 0; padding: 0; }
 .mast__row a { text-decoration-color: var(--color-accent); }
