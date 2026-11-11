@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jehanzeb Ali: AI engineer for game worlds</title>
-<meta name="description" content="I build AI agents that work inside game engines, and I test them properly. Five years of Roblox and VR games before that.">
+<title>Jehanzeb Ali: AI engineer</title>
+<meta name="description" content="AI engineer: agents that use tools, evals that catch when they fail, and guardrails against prompt injection. Every result links to its raw logs.">
 <link rel="canonical" href="https://jz.business/">
-<meta property="og:title" content="Jehanzeb Ali: AI engineer for game worlds">
-<meta property="og:description" content="AI agents that work inside game engines, and the tests that prove what they did.">
+<meta property="og:title" content="Jehanzeb Ali: AI engineer">
+<meta property="og:description" content="AI agents, evals and guardrails, with the evidence public.">
 <meta property="og:url" content="https://jz.business/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://jz.business/episode1-poster.jpg">
@@ -135,6 +135,16 @@ section { padding: 5rem 0 0; }
 .pipe p { color: var(--muted); font-size: 15.5px; margin: 0; }
 .pipe li:not(:last-child)::after { content: ""; position: absolute; top: 2.75rem; right: -1.25rem; width: 1.25rem; height: 2px; background: repeating-linear-gradient(90deg, var(--amber) 0 4px, transparent 4px 8px); }
 
+/* capabilities */
+.caps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; }
+.caps article { padding: 1.4rem 1.3rem 1.25rem; display: flex; flex-direction: column; }
+.caps .icon { width: 44px; height: 44px; border-radius: 9px; background: var(--panel-2); border: 1px solid var(--line-2); display: grid; place-items: center; margin-bottom: 1rem; }
+.caps .icon svg { width: 24px; height: 24px; stroke: var(--amber-ink); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.caps h3 { font-size: 1.15rem; margin-bottom: 0.45rem; }
+.caps p { color: var(--muted); font-size: 15.5px; }
+.caps .proof { margin: auto 0 0; padding-top: 0.6rem; font-size: 14px; color: var(--fg-2); }
+.caps .proof a { color: var(--amber-ink); }
+
 /* demo */
 .demo { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 2.5rem; align-items: center; padding: 1.25rem; }
 .demo video { border-radius: 8px; background: var(--bg-2); }
@@ -208,6 +218,7 @@ footer { padding: 2.5rem 0 3rem; display: flex; justify-content: space-between; 
   .pipe { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .pipe li:nth-child(2)::after { display: none; }
   .stack { grid-template-columns: minmax(0, 1fr); }
+  .caps { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .contact { grid-template-columns: minmax(0, 1fr); padding: 2rem; }
 }
 @media (max-width: 720px) {
@@ -217,6 +228,7 @@ footer { padding: 2.5rem 0 3rem; display: flex; justify-content: space-between; 
   .stats li:nth-child(2) { border-right: 0; }
   .stats li:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
   .pipe { grid-template-columns: minmax(0, 1fr); }
+  .caps { grid-template-columns: minmax(0, 1fr); }
   .pipe li::after { display: none; }
   .demo { grid-template-columns: minmax(0, 1fr); }
   .proj { grid-template-columns: minmax(0, 1fr); }
@@ -231,7 +243,7 @@ footer { padding: 2.5rem 0 3rem; display: flex; justify-content: space-between; 
 <header class="top">
   <div class="wrap">
     <a class="mark" href="#top"><i>JA</i>Jehanzeb Ali</a>
-    <nav aria-label="Sections"><a href="#how">How it works</a><a href="#work">Work</a><a href="#exp">Experience</a><a href="#contact">Contact</a></nav>
+    <nav aria-label="Sections"><a href="#skills">What I build</a><a href="#how">How it works</a><a href="#work">Work</a><a href="#exp">Experience</a><a href="#contact">Contact</a></nav>
     <a class="pill" href="#contact">Open to AI roles</a>
   </div>
 </header>
@@ -240,9 +252,9 @@ footer { padding: 2.5rem 0 3rem; display: flex; justify-content: space-between; 
 
   <section class="hero" aria-labelledby="hero-h" style="padding-top:4.5rem">
     <div>
-      <p class="label tag">AI engineer and former game developer, based in Karachi</p>
-      <h1 id="hero-h">I build AI agents for game worlds, and the tests that prove what they did.</h1>
-      <p class="intro">I test them properly: rules fixed before each run, a baseline to compare against, and the raw logs public. Before this I spent five years making Roblox and VR games.</p>
+      <p class="label tag">AI engineer in Karachi, open to remote work or relocation</p>
+      <h1 id="hero-h">I build AI agents, and the tests that prove they work.</h1>
+      <p class="intro">Agents that use tools, evaluations that catch them when they fail, and guardrails against prompt injection. My projects cover game worlds, payments and multilingual safety, and every result comes with its raw logs. Before this I spent five years shipping Roblox and VR games.</p>
       <div class="actions">
         <a class="btn primary" href="mailto:jehanzebali111@gmail.com">Email me</a>
         <a class="btn" href="#work">See the work</a>
@@ -252,7 +264,7 @@ footer { padding: 2.5rem 0 3rem; display: flex; justify-content: space-between; 
     </div>
 
     <figure class="hud sim" style="margin:0" aria-labelledby="sim-cap">
-      <div class="bar label"><span class="rec">Worldsmith, room F1-A</span><span id="sim-phase">attempt 1</span></div>
+      <div class="bar label"><span class="rec">Featured project: Worldsmith</span><span id="sim-phase">attempt 1</span></div>
       <svg id="room" viewBox="0 0 720 196" role="img" aria-label="Top-down view of the test room: the player walks to the lever, through the gate and onto a short bridge, falls into the gap; after Claude's fix the bridge is 16 studs long and the player reaches the green goal.">
         <rect class="r-pit" x="380" y="20" width="160" height="150" rx="4"/>
         <text class="r-text" x="460" y="182" text-anchor="middle" fill-opacity="0.75">16-stud gap</text>
@@ -272,7 +284,7 @@ footer { padding: 2.5rem 0 3rem; display: flex; justify-content: space-between; 
         <circle class="r-player" id="player" cx="80" cy="106.8" r="7"/>
       </svg>
       <div class="log" id="log" aria-live="off"></div>
-      <figcaption class="note" id="sim-cap">Drawn from the room’s JSON and the positions logged in the real runs. The real footage is below.</figcaption>
+      <figcaption class="note" id="sim-cap">An AI repairs a broken game room. Drawn from the room’s JSON and the positions logged in the real runs; the real footage is below.</figcaption>
     </figure>
   </section>
 
@@ -284,6 +296,19 @@ footer { padding: 2.5rem 0 3rem; display: flex; justify-content: space-between; 
       <li><b>3 PRs</b><span>merged into an open-source AI agent that tests games</span></li>
     </ul>
   </div>
+
+  <section id="skills" aria-labelledby="skills-h">
+    <div class="sec-head reveal">
+      <div><h2 id="skills-h">What I build</h2></div>
+      <p>Four kinds of AI work, each backed by a project you can open and check.</p>
+    </div>
+    <div class="caps">
+      <article class="hud reveal"><div class="icon"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="12" rx="2"/><path d="M9 21h6M12 17v4M8 10h.01M16 10h.01M9 13.5c1.8 1.2 4.2 1.2 6 0"/></svg></div><h3>Agents and tool use</h3><p>Agents that call tools, act in real software and recover from failure, built on the Claude API, the Agent SDK and MCP.</p><p class="proof">Proof: <a href="#work">Worldsmith</a>, <a href="https://github.com/ramenvr/autopilot/pull/40">Autopilot’s Roblox connector</a></p></article>
+      <article class="hud reveal"><div class="icon"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>Evals and benchmarks</h3><p>Pass bars written before the runs, baselines to beat, sample sizes stated, and every raw log published.</p><p class="proof">Proof: <a href="https://github.com/JehanzebAli11/worldsmith/blob/main/bundles/experiments/m2_hard_f1a/results.json">Worldsmith results</a>, <a href="https://github.com/JehanzebAli11/lost-in-transliteration">Lost in Transliteration</a></p></article>
+      <article class="hud reveal"><div class="icon"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.1-8 9-4.6-.9-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div><h3>AI safety and security</h3><p>Guardrails that stop prompt injection before an agent sends, pays or signs, tested on attacks they never saw.</p><p class="proof">Proof: <a href="https://github.com/JehanzebAli11/agent-firewall">Agent firewall</a>, <a href="https://github.com/JehanzebAli11/lost-in-transliteration">Urdu injection study</a></p></article>
+      <article class="hud reveal"><div class="icon"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9zM9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div><h3>Fine-tuning and local models</h3><p>Fine-tuned multilingual detectors (XLM-R and mDistilBERT) trained on my own machine and compared with hosted LLMs and classifiers.</p><p class="proof">Proof: <a href="https://github.com/JehanzebAli11/lost-in-transliteration">multilingual detector</a></p></article>
+    </div>
+  </section>
 
   <section id="how" aria-labelledby="how-h">
     <div class="sec-head reveal">
@@ -389,8 +414,8 @@ footer { padding: 2.5rem 0 3rem; display: flex; justify-content: space-between; 
   <section id="contact" aria-labelledby="contact-h" style="padding-top:0">
     <div class="hud contact reveal">
       <div>
-        <h2 id="contact-h">Hiring for AI agents, evals or game AI?</h2>
-        <p>I’m based in Karachi and happy to work remotely or relocate. The fastest way to reach me is email.</p>
+        <h2 id="contact-h">Hiring an AI engineer?</h2>
+        <p>Agents, evaluation, AI safety, or AI for games. I’m based in Karachi and happy to work remotely or relocate. The fastest way to reach me is email.</p>
       </div>
       <div class="actions">
         <a class="btn primary" href="mailto:jehanzebali111@gmail.com">jehanzebali111@gmail.com</a>
