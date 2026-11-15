@@ -290,7 +290,7 @@ footer { padding: 2.5rem 0 3rem; display: flex; justify-content: space-between; 
 
   <div class="hud reveal" style="margin-top:0.5rem">
     <ul class="stats">
-      <li><b data-count>3 / 3</b><span>runs repaired by each of Haiku, Sonnet and Opus on Worldsmith’s first test room</span></li>
+      <li><b>12 / 12</b><span>broken game rooms repaired by Claude Sonnet and Opus in Worldsmith; random patches 0 / 12</span></li>
       <li><b>23.3% <span class="arrow">→</span> 0.2%</b><span>agent attacks that got through, before and after my firewall</span></li>
       <li><b>48.5% <span class="arrow">→</span> 11.5%</b><span>attacks caught by Prompt Guard 2 in English vs Roman Urdu</span></li>
       <li><b>3 PRs</b><span>merged into an open-source AI agent that tests games</span></li>
@@ -304,7 +304,7 @@ footer { padding: 2.5rem 0 3rem; display: flex; justify-content: space-between; 
     </div>
     <div class="caps">
       <article class="hud reveal"><div class="icon"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="12" rx="2"/><path d="M9 21h6M12 17v4M8 10h.01M16 10h.01M9 13.5c1.8 1.2 4.2 1.2 6 0"/></svg></div><h3>Agents and tool use</h3><p>Agents that call tools, act in real software and recover from failure, built on the Claude API, the Agent SDK and MCP.</p><p class="proof">Proof: <a href="#work">Worldsmith</a>, <a href="https://github.com/ramenvr/autopilot/pull/40">Autopilot’s Roblox connector</a></p></article>
-      <article class="hud reveal"><div class="icon"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>Evals and benchmarks</h3><p>Pass bars written before the runs, baselines to beat, sample sizes stated, and every raw log published.</p><p class="proof">Proof: <a href="https://github.com/JehanzebAli11/worldsmith/blob/main/bundles/experiments/m2_hard_f1a/results.json">Worldsmith results</a>, <a href="https://github.com/JehanzebAli11/lost-in-transliteration">Lost in Transliteration</a></p></article>
+      <article class="hud reveal"><div class="icon"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>Evals and benchmarks</h3><p>Pass bars written before the runs, baselines to beat, sample sizes stated, and every raw log published.</p><p class="proof">Proof: <a href="https://github.com/JehanzebAli11/worldsmith#readme">Worldsmith results</a>, <a href="https://github.com/JehanzebAli11/lost-in-transliteration">Lost in Transliteration</a></p></article>
       <article class="hud reveal"><div class="icon"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.1-8 9-4.6-.9-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div><h3>AI safety and security</h3><p>Guardrails that stop prompt injection before an agent sends, pays or signs, tested on attacks they never saw.</p><p class="proof">Proof: <a href="https://github.com/JehanzebAli11/agent-firewall">Agent firewall</a>, <a href="https://github.com/JehanzebAli11/lost-in-transliteration">Urdu injection study</a></p></article>
       <article class="hud reveal"><div class="icon"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9zM9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div><h3>Fine-tuning and local models</h3><p>Fine-tuned multilingual detectors (XLM-R and mDistilBERT) trained on my own machine and compared with hosted LLMs and classifiers.</p><p class="proof">Proof: <a href="https://github.com/JehanzebAli11/lost-in-transliteration">multilingual detector</a></p></article>
     </div>
@@ -348,8 +348,8 @@ footer { padding: 2.5rem 0 3rem; display: flex; justify-content: space-between; 
       <div class="body">
         <h3><a href="https://github.com/JehanzebAli11/worldsmith">Worldsmith</a></h3>
         <p>An AI that repairs broken Roblox rooms so the same player can finish them. Every fix goes through a validator that blocks cheats, like moving the goal.</p>
-        <p class="res">Haiku, Sonnet and Opus each repaired the first test room in <b>3 of 3</b> runs; random valid patches in <b>0 of 3</b>. Three harder rooms are being tested now.</p>
-        <p class="src"><a href="https://github.com/JehanzebAli11/worldsmith/blob/main/bundles/experiments/m2_hard_f1a/results.json">results.json</a><a href="https://github.com/JehanzebAli11/worldsmith">code</a></p>
+        <p class="res">Four broken rooms, 3 runs each. Rooms repaired: random patches <b>0 of 12</b>, Claude Haiku <b>6 of 12</b>, Sonnet <b>12 of 12</b>, Opus <b>12 of 12</b>. Haiku tried moving the gate out of the way 4 times; the validator rejected every one. 59 API calls, $0.98 in all. The player is a script, not an AI.</p>
+        <p class="src"><a href="https://github.com/JehanzebAli11/worldsmith#readme">results table</a><a href="https://github.com/JehanzebAli11/worldsmith/tree/main/bundles/experiments">raw runs</a><a href="https://github.com/JehanzebAli11/worldsmith">code</a></p>
       </div>
     </article>
 
@@ -405,9 +405,8 @@ footer { padding: 2.5rem 0 3rem; display: flex; justify-content: space-between; 
     <div class="sec-head reveal"><div><h2 id="exp-h">Experience</h2></div><p>Live games taught me to ship, measure and fix things people actually play.</p></div>
     <ol class="timeline reveal">
       <li><span class="yr">2026 to now</span><div><b>Valar and TableSide</b><span class="d">Founder. An AI traffic firewall, and AR menus.</span></div></li>
-      <li><span class="yr">2025 to 2026</span><div><b>Voldex</b><span class="d">Software engineer on live Roblox games.</span></div></li>
+      <li><span class="yr">2025 to 2026</span><div><b>Voldex</b><span class="d">Software engineer on live Roblox games, including NFL Football Universe (400k+ daily users).</span></div></li>
       <li><span class="yr">2020 to 2025</span><div><b>Remio VR</b><span class="d">Unity developer on VR titles with 100k+ monthly users.</span></div></li>
-      <li><span class="yr">Live</span><div><b>NFL Football Universe</b><span class="d">Roblox game with 400k+ daily users.</span></div></li>
     </ol>
   </section>
 
